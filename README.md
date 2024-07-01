@@ -5,13 +5,14 @@ The model is a finetuned version of the google pegasus model. It is finetuned on
 
 ## Using the model
 There are two ways to work with the model.
-    i) Running the notebook to train the model locally
-    ii) Loading the model using transformers library
+1. Running the notebook to train the model locally
+2. Loading the model using transformers library
+    
 
-### Running the model locally
+### 1. Running the model locally
 You can run the model locally by running the notebook. It can run on any environment but it is highly recommended to use Google Colab as it provides a free 15GB GPU.
 
-### Use a pipeline as a high-level helper ( if you want to get running in the shortest time possible)
+#### Use a pipeline as a high-level helper ( if you want to get running in the shortest time possible)
 
 ```python
 from transformers import pipeline
@@ -19,7 +20,7 @@ from transformers import pipeline
 pipe = pipeline("text2text-generation", model="Gachomba/pegasus-samsum")
 ```
 
-### Load the model directly ( if you want to do additional transformations on the data)
+### 2. Load the model directly ( if you want to do additional transformations on the data)
 
 ```python
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
@@ -28,7 +29,7 @@ tokenizer = AutoTokenizer.from_pretrained("Gachomba/pegasus-samsum")
 model = AutoModelForSeq2SeqLM.from_pretrained("Gachomba/pegasus-samsum")
 ```
 
-### Sample usage ( code to use it within your python code)
+#### Sample usage ( code to use it within your python code)
 
 ```python
 from transformers import pipeline
