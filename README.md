@@ -5,8 +5,8 @@ The model is a finetuned version of the google pegasus model. It is finetuned on
 
 ## Using the model
 There are two ways to work with the model.
-    a) Running the notebook to train the model locally
-    b) Using loading the model using transformers library
+    . Running the notebook to train the model locally
+    . Using loading the model using transformers library
 
 ### Running the model locally
 You can run the model locally by running the notebook. It can run on any environment but it is highly recommended to use Google Colab as it provides a free 15GB GPU.
