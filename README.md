@@ -13,19 +13,24 @@ You can run the model locally by running the notebook. It can run on any environ
 
 ### Use a pipeline as a high-level helper ( if you want to get running in the shortest time possible)
 
+```python
 from transformers import pipeline
 
 pipe = pipeline("text2text-generation", model="Gachomba/pegasus-samsum")
+```
 
 ### Load the model directly ( if you want to do additional transformations on the data)
 
+```python
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
 
 tokenizer = AutoTokenizer.from_pretrained("Gachomba/pegasus-samsum")
 model = AutoModelForSeq2SeqLM.from_pretrained("Gachomba/pegasus-samsum")
+```
 
 ### Sample usage ( code to use it within your python code)
 
+```python
 from transformers import pipeline
 
 pipe = pipeline("text2text-generation", model="Gachomba/pegasus-samsum")
@@ -51,3 +56,4 @@ Person D: We're redoing the kitchen and adding a small patio in the backyard. It
 
 message = SummaryGeneration(message)
 print(message)
+```
