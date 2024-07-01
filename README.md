@@ -4,26 +4,29 @@ This is a powerful tool designed to summarize lengthy conversations into coheren
 The model is a finetuned version of the google pegasus model. It is finetuned on the Samsung's samsum conversations dataset. It is a 571 million parameters model. The model uses beam search with a length penalty of 0.8 and has a maximum output length of 128. This can be modified in the gen_kwargs parameters. The model has a slight difference from the original published model in the transformers book. It has been optimized to run in a standard GPU without running out of memory. This is done by clearing the cache memory after each batch.
 
 ## Using the model
+There are two ways to work with the model.
+    a) Running the notebook to train the model locally
+    b) Using loading the model using transformers library
 
 ### Running the model locally
-You can run the model locally by running the notebook.It can run on any environment but it is highly recommended to use Google Colab as it provides a free 15GB GPU.
+You can run the model locally by running the notebook. It can run on any environment but it is highly recommended to use Google Colab as it provides a free 15GB GPU.
 
-### Use a pipeline as a high-level helper
+### Use a pipeline as a high-level helper ( if you want to get running in the shortest time possible)
 
-From transformers import pipeline
+from transformers import pipeline
 
 pipe = pipeline("text2text-generation", model="Gachomba/pegasus-samsum")
 
-### Load model directly
+### Load the model directly ( if you want to do additional transformations on the data)
 
-From transformers import AutoTokenizer, AutoModelForSeq2SeqLM
+from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
 
 tokenizer = AutoTokenizer.from_pretrained("Gachomba/pegasus-samsum")
 model = AutoModelForSeq2SeqLM.from_pretrained("Gachomba/pegasus-samsum")
 
-### Sample usage
+### Sample usage ( code to use it within your python code)
 
-From transformers import pipeline
+from transformers import pipeline
 
 pipe = pipeline("text2text-generation", model="Gachomba/pegasus-samsum")
 gen_kwargs = {"length_penalty": 0.8, "num_beams": 8, "max_length": 128}
